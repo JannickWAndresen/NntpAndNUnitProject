@@ -21,7 +21,7 @@ namespace NunitTests
 
             var result = _nntpClient.Connect(connection);
 
-            Assert.IsTrue(result);  // Verifies that the connection was successful
+            Assert.IsTrue(result);  
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace NunitTests
             var response = _nntpClient.SendCommand("LIST NEWSGROUPS");
 
             Assert.IsNotNull(response);
-            Assert.IsTrue(response.Contains("comp"));  // Assuming the server contains groups starting with "comp"
+            Assert.IsTrue(response.Contains("comp")); 
         }
     }
 }
