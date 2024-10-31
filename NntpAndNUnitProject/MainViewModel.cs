@@ -22,10 +22,33 @@ namespace NntpAndUnitProject
             set { _userGroups = value; OnPropertyChanged("UserGroups"); }
         }
 
-        public string Server { get; set; }
-        public int Port { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Server
+        {
+            get => _server;
+            set { _server = value; OnPropertyChanged(nameof(Server)); }
+        }
+        private string _server;
+
+        public int Port
+        {
+            get => _port;
+            set { _port = value; OnPropertyChanged(nameof(Port)); }
+        }
+        private int _port;
+
+        public string Username
+        {
+            get => _username;
+            set { _username = value; OnPropertyChanged(nameof(Username)); }
+        }
+        private string _username;
+
+        public string Password
+        {
+            get => _password;
+            set { _password = value; OnPropertyChanged(nameof(Password)); }
+        }
+        private string _password;
 
         public MainViewModel()
         {

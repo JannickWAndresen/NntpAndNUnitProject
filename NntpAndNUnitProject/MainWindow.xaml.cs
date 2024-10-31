@@ -27,9 +27,15 @@ namespace NntpAndUnitProject
 
         private void ServerPropertiesButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Server: {_viewModel.Server}\nPort: {_viewModel.Port}\nUsername: {_viewModel.Username}",
-                "Server Properties",
-                MessageBoxButton.OK);
+            var dialog = new ServerPropertiesDialog(_viewModel.Server, _viewModel.Port, _viewModel.Username, _viewModel.Password);
+            if (dialog.ShowDialog() == true)
+            {
+                // Update the ViewModel with new values
+                _viewModel.Server = dialog.Server;
+                _viewModel.Port = dialog.Port;
+                _viewModel.Username = dialog.Username;
+                _viewModel.Password = dialog.Password;
+            }
         }
 
         private void ConnectToServerButton_Click(object sender, RoutedEventArgs e)
